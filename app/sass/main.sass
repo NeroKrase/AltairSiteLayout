@@ -1,0 +1,121 @@
+@import vars
+@import fonts
+@import libs
+
+*
+  box-sizing: border-box
+
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li,
+ul
+  margin: 0
+  padding: 0
+
+li
+  list-style: none
+
+.content-wrapper
+  width: 70%
+  margin: auto
+
+.header
+
+  margin-top: 10px
+  margin-bottom: 30px
+
+  .header-content
+    display: flex
+    justify-content: space-between
+
+    .logo-section
+      display: flex
+
+      .logo
+        width: 42px
+        height: 42px
+        align-self: center
+        cursor: pointer
+        transition: 0.1s
+
+      .name
+        font-family: "Mistral"
+        font-size: 42px
+        align-self: center
+        margin-left: 20px
+        cursor: pointer
+
+    .navbar
+      align-self: center
+
+      &-list
+        display: flex
+
+        &-item
+          align-self: center
+          font-family: "Montserrat"
+          font-weight: bold
+          text-transform: uppercase
+          color: #999999
+          transition: 0.1s
+          cursor: pointer
+
+          &:not(:first-child)
+            margin-left: 35px
+
+          &.active
+            color: $text-primary
+
+
+.main
+  background-image: url('../img/_src/Mountain.png')
+  background-repeat: no-repeat
+  background-size: contain
+  background-position: bottom
+
+  .main-content
+    text-align: center
+
+    .main-title
+      margin-bottom: 75px
+
+      .thitnk
+        font-family: Pacifico
+        font-size: 36px
+        transform: translateX(-195px) translateY(30px)
+
+      .title
+        text-transform: uppercase
+        font-family: "Kenyan"
+        font-size: 56px
+        line-height: 56px
+
+        .creative
+          color: $text-secondary
+          font-size: 122px
+
+    .main-devices
+      display: flex
+      justify-content: center
+
+      .ipad
+        transform: translateX(115%)
+        z-index: 1
+
+
+      .iphone
+        height: 100%
+        transform: translateX(-210%) translateY(100px)
+        z-index: 2
+
+      .browser
+        height: 100%
+        transform: translateX(-55%) translateY(70px)
+        z-index: 0
