@@ -3,11 +3,33 @@ $accent: #fefdfe
 $secondary: #3f3b48
 $text-primary: $secondary
 $text-secondary: #ff0000
+$text-white: #fff
 
 // Bootstrap compatible gutter variable => $gutter
 $grid-gutter-width: 20px
 $gutter: $grid-gutter-width
 
+//User Mixins;
+@mixin red-text
+  color: $text-secondary
+
+@mixin white-text
+  color: $text-white
+
+@mixin big-text
+  font-size: 122px
+
+@mixin title
+  text-transform: uppercase
+  font-family: "Kenyan"
+  font-size: 56px
+  line-height: 56px
+  color: $text-primary
+
+@mixin cursive-title
+  font-family: "Pacifico"
+  font-size: 36px
+  color: $text-primary
 // // Breakpoints mixin settings (node_modules/bootstrap/scss/mixins/_breakpoints.scss)
 // // Example: +media-breakpoint-down(xs) - ≥576px / +media-breakpoint-up(sm) - // ≤576px
 // // Default variables: node_modules/bootstrap/scss/_variables.scss

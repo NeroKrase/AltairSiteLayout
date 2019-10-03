@@ -26,10 +26,24 @@ li
   width: 70%
   margin: auto
 
+
+.red-text
+  @include red-text
+
+.big-text
+  @include big-text
+
+.title
+  @include title
+
+.cursive-title
+  @include cursive-title
+
+.white-text
+  @include white-text
 .header
 
   margin-top: 10px
-  margin-bottom: 30px
 
   .header-content
     display: flex
@@ -79,27 +93,19 @@ li
   background-repeat: no-repeat
   background-size: contain
   background-position: bottom
+  overflow: hidden
 
   .main-content
     text-align: center
 
-    .main-title
+    .main-title-container
       margin-bottom: 75px
 
       .thitnk
-        font-family: Pacifico
-        font-size: 36px
-        transform: translateX(-195px) translateY(30px)
+        transform: translateX(-195px)
 
-      .title
+      .main-title
         text-transform: uppercase
-        font-family: "Kenyan"
-        font-size: 56px
-        line-height: 56px
-
-        .creative
-          color: $text-secondary
-          font-size: 122px
 
     .main-devices
       display: flex
@@ -108,6 +114,7 @@ li
       .ipad
         transform: translateX(115%)
         z-index: 1
+        overflow: hidden
 
 
       .iphone
@@ -119,3 +126,14 @@ li
         height: 100%
         transform: translateX(-55%) translateY(70px)
         z-index: 0
+.works
+  background-color: $secondary
+  transform: translateY(-120px)
+
+  .works-content
+
+    .works-title-container
+      text-align: center
+
+      .works-cursive-title
+        transform: translateX(-13%) translateY(30px)
