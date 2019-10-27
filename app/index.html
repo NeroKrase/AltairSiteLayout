@@ -10,25 +10,25 @@
 </head>
 
 <body>
-  <header class="header">
+  <header class="header sticky">
     <div class="header-content content-wrapper">
       <div class="logo-section">
         <img src="img/_src/logo.png" alt="logo" class="logo">
         <p class="name">Altair</p>
       </div>
-      <div class="navbar">
+      <nav class="navbar">
         <ul class="navbar-list">
-          <li class="navbar-list-item active">home</li>
-          <li class="navbar-list-item">work</li>
-          <li class="navbar-list-item">process</li>
-          <li class="navbar-list-item">blog</li>
-          <li class="navbar-list-item">fun facts</li>
-          <li class="navbar-list-item"><img src="img/_src/mail.png" alt="mail" class="mail"></li>
+          <li class="navbar-list-item active"><a href="#home">home</a></li>
+          <li class="navbar-list-item"><a href="#works">work</a></li>
+          <li class="navbar-list-item"><a href="#process">process</a></li>
+          <li class="navbar-list-item"><a href="#blog">blog</a></li>
+          <li class="navbar-list-item"><a href="#fun-facts">fun facts</a></li>
+          <li class="navbar-list-item"><a href="#"><img src="img/_src/mail.png" alt="mail" class="mail"></a></li>
         </ul>
-      </div>
+      </nav>
     </div>
   </header>
-  <main class="main">
+  <main class="main" id="home">
     <img src="img/_src/Mountain.png" alt="" class="main-bg">
     <div class="main-content content-wrapper">
       <div class="main-title-container">
@@ -42,7 +42,7 @@
       </div>
     </div>
   </main>
-  <section class="works">
+  <section class="works" id="works">
     <div class="works-content content-wrapper">
       <div class="works-title-container">
         <h4 class="works-cursive-title cursive-title white-text">Our</h4>
@@ -118,7 +118,7 @@
       </div>
     </div>
   </section>
-  <section class="how-we-work">
+  <section class="how-we-work" id="process">
     <img src="img/_src/how-we-work-bg.png" alt="" class="how-we-work-bg">
     <div class="how-we-work-content content-wrapper">
       <div class="how-we-work-title">
@@ -155,7 +155,7 @@
       </div>
     </div>
   </section>
-  <section class="posts">
+  <section class="posts" id="blog">
     <div class="posts-title">
       <h4 class="cursive-title">Our</h4>
       <h1 class="title">Latest <span class="big-text">blog</span> posts</h1>
@@ -307,7 +307,7 @@
       <div class="scroller-button"></div>
     </div>
   </section>
-  <section class="facts">
+  <section class="facts" id="fun-facts">
     <div class="facts-content content-wrapper">
       <div class="facts-title">
         <h1 class="fun-underlined">fun</h1>
@@ -369,7 +369,6 @@
     </div>
   </footer>
   <script src="js/scripts.min.js"></script>
-  <script src="https://kit.fontawesome.com/7caad9b4f4.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

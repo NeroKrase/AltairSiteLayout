@@ -5,6 +5,9 @@
 *
   box-sizing: border-box
 
+html
+  scroll-behavior: smooth
+  
 html,
 body,
 h1,
@@ -47,10 +50,18 @@ li
 .underlined
   @include underlined-text
 
+.sticky
+  position: fixed
+  top: 0
+  width: 100%
+
+  & + .main
+    padding-top: 60px
+
 
 .header
-
-  margin-top: 10px
+  background-color: white
+  z-index: 10
 
   .header-content
     display: flex
@@ -78,20 +89,26 @@ li
       &-list
         display: flex
 
-        &-item
+        .navbar-list-item
           align-self: center
-          font-family: "Montserrat"
-          font-weight: bold
-          text-transform: uppercase
-          color: #999999
-          transition: 0.1s
-          cursor: pointer
 
           &:not(:first-child)
-            margin-left: 35px
+              margin-left: 35px
 
-          &.active
-            color: $text-primary
+          a
+            font-family: "Montserrat"
+            font-weight: bold
+            text-transform: uppercase
+            color: #999999
+            cursor: pointer
+            transition: 0.1s
+
+            &.active
+              color: $text-primary
+
+            &:hover
+              text-decoration: none
+              color: $text-primary
 
 
 .main
@@ -240,6 +257,7 @@ li
 
 
 .how-we-work
+  overflow: hidden
   position: relative
   padding-bottom: 300px
 
@@ -247,6 +265,7 @@ li
     position: absolute
     top: 100%
     transform: translateY(-290px)
+    width: 100vw
 
   &-content
     padding-top: 90px
@@ -446,13 +465,13 @@ li
 .facts
 
   .facts-content
-    margin-top: 90px
+    padding-top: 90px
 
     .facts-title
       display: flex
       justify-content: center
       align-items: flex-start
-      margin-bottom: 55px
+      padding-bottom: 80px
 
       .fun-underlined
         font-family: "Kenyan"
@@ -475,7 +494,7 @@ li
         font-family: "Montserrat"
         font-size: 18px
         text-transform: uppercase
-        margin-bottom: 20px
+        padding-bottom: 40px
 
       .clients-logos
         width: 370px

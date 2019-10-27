@@ -1,5 +1,26 @@
-document.addEventListener("DOMContentLoaded", function() {
+const FONT_NAME = "Montserrat";
 
+document.fonts.load('10pt "Montserrat"').then(renderText);
+document.addEventListener("DOMContentLoaded", function() {
+});
+
+window.addEventListener('scroll', event => {
+  let navLinks = document.querySelectorAll('nav ul li a');
+  let fromTop = window.scrollY;
+
+  navLinks.forEach(link => {
+    let section = document.querySelector(link.hash);
+    console.log(section);
+
+    if(section.offsetTop - 40 <= fromTop && section.offsetTop + section.offsetHeight - 40 > fromTop){
+      link.classList.add('active');
+    }
+    else{
+      link.classList.remove('active');
+    }
+  });
+});
+function renderText(){
   let canvas = document.getElementById("canvas");
   let ctx = canvas.getContext("2d");
   ctx.beginPath();
@@ -80,4 +101,4 @@ document.addEventListener("DOMContentLoaded", function() {
   ctx.fillText("BEST SHOTS", 520 - 38, 160 + 80);
   ctx.fillText("COFFES MADE", 650 - 45, 45 + 65);
   ctx.fillText("WINNING AWARDS", 800 - 55, 160 + 120);
-});
+}
