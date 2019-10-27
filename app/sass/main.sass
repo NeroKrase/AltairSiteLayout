@@ -19,13 +19,15 @@ ul
   margin: 0
   padding: 0
 
+body
+  overflow-x: hidden
+
 li
   list-style: none
 
 .content-wrapper
   width: 70%
   margin: auto
-
 
 .red-text
   @include red-text
@@ -44,6 +46,7 @@ li
 
 .underlined
   @include underlined-text
+
 
 .header
 
@@ -142,6 +145,8 @@ li
 
         &:hover
           transform: translateX(-95%) translateY(70px)
+
+
 .works
   background-color: $secondary
 
@@ -219,6 +224,9 @@ li
 
           .icon
             font-size: 48px
+            width: 48px
+            height: 68px
+            fill: white
 
           .text
             font-family: "Montserrat"
@@ -230,12 +238,15 @@ li
       justify-content: center
       padding-bottom: 50px
 
+
 .how-we-work
   position: relative
+  padding-bottom: 300px
 
   .how-we-work-bg
     position: absolute
     top: 100%
+    transform: translateY(-290px)
 
   &-content
     padding-top: 90px
@@ -297,3 +308,253 @@ li
         font-family: "Montserrat"
         font-size: 16
         text-transform: uppercase
+
+
+.posts
+  padding-top: 85px
+  background-color: $secondary
+  text-align: center
+
+  &-title
+    padding-bottom: 85px
+
+    .cursive-title
+      color: $text-white
+      transform: translateX(-130px) translateY(30px)
+
+    .title
+
+      color: $text-white
+  &-posts
+    display: flex
+    width: 400%
+    margin-left: 50px
+    padding-bottom: 50px
+
+    .post
+      width: 340px
+      height: 440px
+      background-color: #595466
+      text-align: left
+      box-shadow: 10px 10px 15px #37333f
+
+      &+.post
+        margin-left: 50px
+
+      .post-image
+        margin: auto
+        margin-top: 25px
+        width: 85%
+        height: 60%
+        background-color: $secondary
+        position: relative
+
+        .post-image
+          width: 100%
+          height: 100%
+
+        .post-date
+          text-align: center
+          position: absolute
+          width: 25%
+          height: 25%
+          top: 100%
+          left: 100%
+          transform: translateX(-100%) translateY(-72%)
+
+          .day
+            font-size: 32px
+            background-color: $text-white
+            font-family: "Montserrat"
+            border-top-left-radius: 4px
+            border-top-right-radius: 4px
+
+          .month
+            padding-top: 5px
+            padding-bottom: 5px
+            text-align: center
+            text-transform: uppercase
+            font-family: "Montserrat"
+            font-size: 11px
+            color: $text-white
+            background-color: $secondary
+            border-bottom-right-radius: 4px
+            border-bottom-left-radius: 4px
+
+      .post-text
+        color: $text-white
+        text-transform: uppercase
+        font-family: "Montserrat"
+        width: 85%
+        margin: auto
+        margin-top: 30px
+
+        .post-author
+          font-size: 10px
+          margin-bottom: 10px
+
+        .post-title
+          font-size: 14px
+          margin-bottom: 10px
+
+        .posts-read-button
+          font-size: 10px
+
+  .scroller
+    width: 70%
+    margin: auto
+    padding-bottom: 85px
+    height: 25px
+    position: relative
+    display: flex
+    align-items: center
+
+    .scroller-line
+      width: 100%
+      background-color: #2f2c36
+      border-radius: 32px
+      height: 8px
+
+    .scroller-button
+      position: absolute
+      height: 25px
+      width: 90px
+      border-radius: 2px
+      /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#d9d9d9+0,ffffff+40,ffffff+60,d9d9d9+100 */
+      background: #d9d9d9 /* Old browsers */
+      background: -moz-linear-gradient(top,  #d9d9d9 0%, #ffffff 40%, #ffffff 60%, #d9d9d9 100%) /* FF3.6-15 */
+      background: -webkit-linear-gradient(top,  #d9d9d9 0%,#ffffff 40%,#ffffff 60%,#d9d9d9 100%) /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(to bottom,  #d9d9d9 0%,#ffffff 40%,#ffffff 60%,#d9d9d9 100%) /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d9d9d9', endColorstr='#d9d9d9',GradientType=0 ) /* IE6-9 */
+
+
+      &::after
+        content: ""
+        position: absolute
+        width: 80px
+        height: 19px
+        /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#cdcdcd+0,ffffff+40,ffffff+60,cdcdcd+100 */
+        background: #cdcdcd /* Old browsers */
+        background: -moz-linear-gradient(left,  #cdcdcd 0%, #ffffff 40%, #ffffff 60%, #cdcdcd 100%) /* FF3.6-15 */
+        background: -webkit-linear-gradient(left,  #cdcdcd 0%,#ffffff 40%,#ffffff 60%,#cdcdcd 100%) /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to right,  #cdcdcd 0%,#ffffff 40%,#ffffff 60%,#cdcdcd 100%) /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cdcdcd', endColorstr='#cdcdcd',GradientType=1 ) /* IE6-9 */
+        transform: translateY(3px) translateX(-40px)
+        border-radius: 32px
+
+
+.facts
+
+  .facts-content
+    margin-top: 90px
+
+    .facts-title
+      display: flex
+      justify-content: center
+      align-items: flex-start
+      margin-bottom: 55px
+
+      .fun-underlined
+        font-family: "Kenyan"
+        font-size: 82px
+        line-height: 82px
+        text-transform: uppercase
+        text-decoration: underline
+
+      .facts
+        font-family: "Kenyan"
+        color: $text-secondary
+        font-size: 99px
+        line-height: 99px
+        text-transform: uppercase
+        transform: translateY(-2px)
+
+    .facts-clients
+
+      .clients
+        font-family: "Montserrat"
+        font-size: 18px
+        text-transform: uppercase
+        margin-bottom: 20px
+
+      .clients-logos
+        width: 370px
+        height: 140px
+        border-radius: 32px
+        /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ececec+0,ffffff+100 */
+        background: rgb(236,236,236); /* Old browsers */
+        background: -moz-linear-gradient(top,  rgba(236,236,236,1) 0%, rgba(255,255,255,1) 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top,  rgba(236,236,236,1) 0%,rgba(255,255,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom,  rgba(236,236,236,1) 0%,rgba(255,255,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ececec', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+
+        .logos
+          padding: 10%
+          display: flex
+          flex-wrap: wrap
+          justify-content: space-between
+          align-items: center
+
+          .logo
+            margin: 10px
+
+      #canvas
+        transform: translateY(-125px)
+
+
+.footer
+  background-color: $secondary
+  font-family: "Montserrat"
+  font-size: 12px
+  color: $text-white
+  height: 80px
+  display: flex
+  align-items: center
+
+  .footer-content
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+    .follows
+      display: flex
+      align-items: center
+
+      .follow-us
+        margin-right: 10px
+
+      .social-icons
+
+        .icon
+          padding: 5px
+          width: 30px
+          height: 30px
+          fill: white
+          border: 2px solid white
+          border-radius: 50%
+          margin-left: 5px
+
+        .fb-icon
+          transition: 0.1s
+
+          &:hover
+            fill: #3b5998
+            border-color: #3b5998
+            box-shadow: 0px 0px 10px #3b5998
+
+        .tw-icon
+          transition: 0.1s
+
+          &:hover
+            fill: #1DA1F2
+            border-color: #1DA1F2
+            box-shadow: 0px 0px 10px #1DA1F2
+
+
+        .db-icon
+          transition: 0.1s
+
+          &:hover
+            fill: #ea4c89
+            border-color: #ea4c89
+            box-shadow: 0px 0px 10px #ea4c89
