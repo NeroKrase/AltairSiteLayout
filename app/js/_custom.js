@@ -1,16 +1,16 @@
+//Font to preload
 const FONT_NAME = "Montserrat";
 
-document.fonts.load('10pt "Montserrat"').then(renderText);
-document.addEventListener("DOMContentLoaded", function() {
-});
+//Preload font
+document.fonts.load('10pt "Montserrat"').then(drawCanvas);
 
-window.addEventListener('scroll', event => {
+//Responsive Navigation
+window.addEventListener('scroll', () => {
   let navLinks = document.querySelectorAll('nav ul li a');
   let fromTop = window.scrollY;
 
   navLinks.forEach(link => {
     let section = document.querySelector(link.hash);
-    console.log(section);
 
     if(section.offsetTop - 40 <= fromTop && section.offsetTop + section.offsetHeight - 40 > fromTop){
       link.classList.add('active');
@@ -20,7 +20,9 @@ window.addEventListener('scroll', event => {
     }
   });
 });
-function renderText(){
+
+//Draw Cnavas
+function drawCanvas(){
   let canvas = document.getElementById("canvas");
   let ctx = canvas.getContext("2d");
   ctx.beginPath();
@@ -102,3 +104,73 @@ function renderText(){
   ctx.fillText("COFFES MADE", 650 - 45, 45 + 65);
   ctx.fillText("WINNING AWARDS", 800 - 55, 160 + 120);
 }
+
+//CAROUSEL
+
+//Carousel containers
+const descriptionSlider = document.querySelector('.description-slider-container');
+const imgSlider = document.querySelector('.img-slider');
+const iconsSlider = document.querySelector('.technologies-icons-container');
+//Carousel contents
+const descriptionContents = document.querySelectorAll('.description-slider-container .description-container');
+const imgContents = document.querySelectorAll('.img-slider .slide-img');
+const iconsContents = document.querySelectorAll('.technologies-icons-container .technologies-icons');
+//Carousel buttons
+const nextBtn = document.querySelector('#nextBtn');
+const prevBtn = document.querySelector('#prevBtn');
+//Counter
+let counter = 1;
+//Sizes
+const descriptionSize = descriptionContents[0].clientWidth;
+const imgSize = imgContents[0].clientWidth;
+const iconsSize = iconsContents[0].clientWidth;
+
+//First Transform
+descriptionSlider.style.transform = 'translateX(' + (-descriptionSize * counter) + 'px)';
+imgSlider.style.transform = 'translateX(' + (-imgSize * counter) + 'px)';
+iconsSlider.style.transform = 'translateX(' + (-iconsSize * counter) + 'px)';
+//Button Listeners
+nextBtn.addEventListener('click', () => {
+  if(counter >= descriptionContents.length - 1) return;
+  descriptionSlider.style.transition = 'transform 0.3s ease-in-out';
+  imgSlider.style.transition = 'transform 0.3s ease-in-out';
+  iconsSlider.style.transition = 'transform 0.3s ease-in-out';
+  counter++;
+  descriptionSlider.style.transform = 'translateX(' + (-descriptionSize * counter) + 'px)';
+  imgSlider.style.transform = 'translateX(' + (-imgSize * counter) + 'px)';
+  iconsSlider.style.transform = 'translateX(' + (-iconsSize * counter) + 'px)';
+});
+prevBtn.addEventListener('click', () => {
+  if(counter <= 0) return;
+  descriptionSlider.style.transition = 'transform 0.3s ease-in-out';
+  imgSlider.style.transition = 'transform 0.3s ease-in-out';
+  iconsSlider.style.transition = 'transform 0.3s ease-in-out';
+  counter--;
+  descriptionSlider.style.transform = 'translateX(' + (-descriptionSize * counter) + 'px)';
+  imgSlider.style.transform = 'translateX(' + (-imgSize * counter) + 'px)';
+  iconsSlider.style.transform = 'translateX(' + (-iconsSize * counter) + 'px)';
+});
+//Return to original image
+descriptionSlider.addEventListener('transitionend', () => {
+  let a = descriptionContents[counter].id;
+  if (a === 'lastClone') {
+    descriptionSlider.style.transition = "none";
+    imgSlider.style.transition = "none";
+    iconsSlider.style.transition = "none";
+    let b = descriptionContents.length - 2;
+    counter = b;
+    descriptionSlider.style.transform = 'translateX(' + (-descriptionSize * counter) + 'px)';
+    imgSlider.style.transform = 'translateX(' + (-imgSize * counter) + 'px)';
+    iconsSlider.style.transform = 'translateX(' + (-iconsSize * counter) + 'px)';
+  }
+  if(a === 'firstClone'){
+    descriptionSlider.style.transition = "none";
+    imgSlider.style.transition = "none";
+    iconsSlider.style.transition = "none";
+    let b = descriptionContents.length - counter;
+    counter = b;
+    descriptionSlider.style.transform = 'translateX(' + (-descriptionSize * counter) + 'px)';
+    imgSlider.style.transform = 'translateX(' + (-imgSize * counter) + 'px)';
+    iconsSlider.style.transform = 'translateX(' + (-iconsSize * counter) + 'px)';
+  }
+});

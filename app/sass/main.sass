@@ -7,7 +7,7 @@
 
 html
   scroll-behavior: smooth
-  
+
 html,
 body,
 h1,
@@ -105,6 +105,7 @@ li
 
             &.active
               color: $text-primary
+              cursor: default
 
             &:hover
               text-decoration: none
@@ -114,7 +115,7 @@ li
 .main
   position: relative
   overflow: hidden
-  height: 550px
+  height: 610px
 
   .main-bg
     position: absolute
@@ -170,6 +171,7 @@ li
   .works-content
 
     .works-title-container
+      padding-top: 40px
       margin-bottom: 50px
       text-align: center
 
@@ -179,32 +181,62 @@ li
     &-main
       display: flex
       justify-content: space-between
+      overflow-x: hidden
 
-      .description-container
+      .container
         width: 250px
+        overflow-x: hidden
 
-        .description-title
-          font-family: "Montserrat"
-          font-size: 18px
-          text-transform: uppercase
-          margin-bottom: 30px
+        .description-slider-container
+          display: flex
+          width: 250px
 
-        .description-description
-          font-family: "Arial"
-          font-size: 12px
-          font-weight: 400
-          margin-bottom: 30px
+          .description-container
+            min-width: 250px
 
-        .description-list
+            .description-title
+              font-family: "Montserrat"
+              font-size: 18px
+              text-transform: uppercase
+              margin-bottom: 30px
 
-          .description-list-item
-            text-transform: uppercase
-            font-family: "Montserrat"
+            .description-description
+              font-family: "Arial"
+              font-size: 12px
+              font-weight: 400
+              margin-bottom: 30px
 
-            &:not(:last-child)
-              margin-bottom: 5px
+            .description-list
+
+              .description-list-item
+                text-transform: uppercase
+                font-family: "Montserrat"
+
+                &:not(:last-child)
+                  margin-bottom: 5px
+
+      .works-img-container
+        position: relative
+
+        .img-slider-container
+          width: 69.9%
+          height: 75%
+          position: absolute
+          top: 12.2%
+          left: 15%
+          overflow-x: hidden
+
+          .img-slider
+            width: 100%
+            height: 100%
+            display: flex
+
+            img
+              width: 100%
 
       .works-technologies
+        overflow-x: hidden
+        overflow-y: hidden
 
         .technologies-title
           font-family: "Montserrat"
@@ -212,42 +244,46 @@ li
           text-transform: uppercase
           margin-bottom: 30px
 
-        .technologies-icons
-          width: 250px
-          height: 100px
-          background-color: #635f6d
-          border-radius: 8px
+        .technologies-icons-container
           display: flex
-          justify-content: space-around
-          text-align: center
+          width: 250px
 
-          .block
-            transition: 0.2s
+          .technologies-icons
+            min-width: 250px
+            height: 100px
+            background-color: #635f6d
+            border-radius: 8px
+            display: flex
+            justify-content: space-around
+            text-align: center
 
-            &:hover
-              transform: scale(1.1)
+            .block
+              transition: 0.2s
 
-          .html-block
-            border-right: solid $text-primary 1px
-            width: 33%
+              &:hover
+                transform: scale(1.1)
+
+            .html-block
+              border-right: solid $text-primary 1px
+              width: 33%
 
 
-          .css-block
-            border-right: solid $text-primary 1px
-            width: 33%
+            .css-block
+              border-right: solid $text-primary 1px
+              width: 33%
 
-          .android-block
-            width: 33%
+            .android-block
+              width: 33%
 
-          .icon
-            font-size: 48px
-            width: 48px
-            height: 68px
-            fill: white
+            .icon
+              font-size: 48px
+              width: 48px
+              height: 68px
+              fill: white
 
-          .text
-            font-family: "Montserrat"
-            font-size: 14px
+            .text
+              font-family: "Montserrat"
+              font-size: 14px
 
     .works-slider
       margin-top: 30px
