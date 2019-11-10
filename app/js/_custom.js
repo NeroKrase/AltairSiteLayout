@@ -1,5 +1,6 @@
 //Font to preload
 const FONT_NAME = "Montserrat";
+const NAVBAR_ID = document.querySelector("#navbar-icon");
 
 //Preload font
 document.fonts.load('10pt "Montserrat"').then(drawCanvas);
@@ -19,6 +20,17 @@ window.addEventListener('scroll', () => {
       link.classList.remove('active');
     }
   });
+});
+
+//Responsive Navigation
+NAVBAR_ID.addEventListener('click', () => {
+  let navbar = document.querySelector("#topnav");
+  if(navbar.className === "navbar-list"){
+    navbar.className += " responsive";
+  }
+  else{
+    navbar.className = "navbar-list";
+  }
 });
 
 //Draw Cnavas
@@ -109,14 +121,17 @@ function drawCanvas(){
   ctx.fillText("COFFES MADE", (650 - 45)/k, (45 + 65)/k);
   ctx.fillText("WINNING AWARDS", (800 - 55)/k, (160 + 120)/k);
 }
+
 //Resize Canvas
 window.addEventListener('resize', () => {
   let w = window.innerWidth;
   let canvas = document.getElementById("canvas");
   let ctx = canvas.getContext("2d");
+  let k = 1366/innerWidth;
   ctx.clearRect(0, 0, canvas.widht, canvas.height);
-  let k = 1280/innerWidth;
   canvas.width = w;
+  canvas.height = w/16*4;
+  canvas.style.transform = "translateY(-" + (125/k) + "px)";
   ctx.beginPath();
   ctx.arc(37/k, 270/k, 16/k, 0, 2 * Math.PI);
   ctx.fillStyle = "#3f3b48";

@@ -98,6 +98,9 @@ li
         .navbar-list-item
           align-self: center
 
+          &.icon
+            display: none
+
           &:not(:first-child)
               margin-left: 35px
 
@@ -116,6 +119,46 @@ li
             &:hover
               text-decoration: none
               color: $text-primary
+  @media (max-width: 992px)
+    .header-content
+      .logo-section
+        .logo
+          align-self: flex-start
+          margin-top: 12px
+        .name
+          align-self: flex-start
+      .navbar
+        &-list
+          transition: 0.5s
+          .navbar-list-item
+            display: none
+            &.icon
+              position: absolute
+              top: 0
+              right: 20px
+              margin: 0
+              text-align: center
+              display: block
+              font-size: 36px
+              cursor: pointer
+              line-height: 32px
+              height: 40px
+              width: 40px
+              border-radius: 50%
+              &:hover
+                color: white
+                background-color: $secondary
+          &.responsive
+            margin-top: 30px
+            display: flex
+            flex-direction: column
+            .navbar-list-item
+              display: block
+              line-height: 40px
+              margin: 0
+              a
+                .mail
+                  margin-bottom: 20px
 
 
 .main
@@ -123,10 +166,13 @@ li
   overflow: hidden
   height: 610px
 
-  .main-bg
-    position: absolute
-    width: 100vw
-    top: 60%
+  .main-bg-container
+    display: flex
+    justify-content: center
+
+    .main-bg
+      position: absolute
+      z-index: -10
 
   .main-content
     text-align: center
@@ -170,6 +216,14 @@ li
         &:hover
           transform: translateX(-95%) translateY(70px)
 
+  @media (max-width: 992px)
+
+    .main-content
+
+      .main-title-container
+
+        .thitnk
+          transform: translateX(-145px)
 
 .works
   background-color: $secondary
@@ -377,17 +431,34 @@ li
         top: 33%
         left: 5%
 
+    @media (max-width: 1200px)
+
+      .works-content-main
+        flex-wrap: wrap
+        justify-content: center
+
+        .works-technologies
+          text-align: center
+          margin-top: 30px
+
+  @media (max-width: 992px)
+
+    .works-content
+      .works-title-container
+        .works-cursive-title
+          transform: translateX(-95px) translateY(30px)
+
 
 .how-we-work
+  height: 892px
   overflow: hidden
   position: relative
-  padding-bottom: 300px
 
   .how-we-work-bg
     position: absolute
-    top: 100%
-    transform: translateY(-290px)
+    bottom: 0
     width: 100vw
+    z-index: -10
 
   &-content
     padding-top: 90px
@@ -425,6 +496,9 @@ li
       .block
         width: 280px
 
+        &:not(:first-child)
+          margin-left: 50px
+
         .block-title
           font-family: "Montserrat"
           font-size: 18px
@@ -447,7 +521,7 @@ li
         border: none
         color: $text-white
         font-family: "Montserrat"
-        font-size: 16
+        font-size: 16px
         text-transform: uppercase
 
         &:hover
@@ -626,7 +700,7 @@ li
 
       .clients-logos
         width: 370px
-        height: 140px
+        max-height: 10%
         border-radius: 32px
         /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ececec+0,ffffff+100 */
         background: rgb(236,236,236); /* Old browsers */
@@ -644,6 +718,13 @@ li
 
           .logo
             margin: 10px
+
+  @media (max-width: 1200px)
+    .clients
+      text-align: center
+    .clients-logos
+      margin: auto
+      margin-bottom: 70px
 
 .footer
   background-color: $secondary

@@ -33,6 +33,6 @@
   "homepage": "https://github.com/NeroKrase/AltairSiteLayout#readme",
   "dependencies": {
     "easeljs": "^1.0.2",
-    "simplebar": "^5.0.4"
+    "simplebar": "^5.0.6"
   }
 }

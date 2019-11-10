@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="css/styles.min.css">
-  <link rel="stylesheet" href="css/simplebar.css">
+  <link rel="stylesheet" href="css/simplebar.min.css">
   <title>Altair</title>
 </head>
 
@@ -18,19 +18,22 @@
         <p class="name">Altair</p>
       </div>
       <nav class="navbar">
-        <ul class="navbar-list">
+        <ul class="navbar-list" id="topnav">
           <li class="navbar-list-item active"><a href="#home">home</a></li>
           <li class="navbar-list-item"><a href="#works">work</a></li>
           <li class="navbar-list-item"><a href="#process">process</a></li>
           <li class="navbar-list-item"><a href="#blog">blog</a></li>
           <li class="navbar-list-item"><a href="#fun-facts">fun facts</a></li>
           <li class="navbar-list-item"><a href="#"><img src="img/_src/mail.png" alt="mail" class="mail"></a></li>
+          <li class="navbar-list-item icon" id="navbar-icon">≡</li>
         </ul>
       </nav>
     </div>
   </header>
   <main class="main" id="home">
-    <img src="img/_src/Mountain.png" alt="" class="main-bg">
+    <div class="main-bg-container">
+      <img src="img/_src/Mountain.png" alt="" class="main-bg">
+    </div>
     <div class="main-content content-wrapper">
       <div class="main-title-container">
         <h4 class="thitnk cursive-title">Thitnk</h4>
@@ -292,7 +295,7 @@
                   xml:space="preserve">
                   <polygon points="75.089,23.98 58.245,108.778 403.138,108.778 392.289,163.309 47.111,163.309 30.549,248.104 375.445,248.104
   356.027,344.887 217.273,390.856 96.789,344.887 105.069,302.921 20.272,302.921 0,404.559 199.286,480.791 428.831,404.559
-  504.771,23.98 " />
+  504.771,23.98"/>
                 </svg>
                 <p class="css-text white-text text">CSS</p>
               </div>
