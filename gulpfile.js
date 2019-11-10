@@ -1,15 +1,15 @@
 const 	gulp         = require('gulp'),
-		sass         = require('gulp-sass'),
-		browserSync  = require('browser-sync'),
-		concat       = require('gulp-concat'),
-		uglify       = require('gulp-uglify-es').default,
-		cleancss     = require('gulp-clean-css'),
-		autoprefixer = require('gulp-autoprefixer'),
-		rsync        = require('gulp-rsync'),
-		newer        = require('gulp-newer'),
-		rename       = require('gulp-rename'),
-		responsive   = require('gulp-responsive'),
-		del          = require('del');
+				sass         = require('gulp-sass'),
+				browserSync  = require('browser-sync'),
+				concat       = require('gulp-concat'),
+				uglify       = require('gulp-uglify-es').default,
+				cleancss     = require('gulp-clean-css'),
+				autoprefixer = require('gulp-autoprefixer'),
+				rsync        = require('gulp-rsync'),
+				newer        = require('gulp-newer'),
+				rename       = require('gulp-rename'),
+				responsive   = require('gulp-responsive'),
+				del          = require('del');
 
 // Local Server
 gulp.task('browser-sync', function() {
@@ -44,7 +44,7 @@ gulp.task('styles', function() {
 // Scripts & JS Libraries
 gulp.task('scripts', function() {
 	return gulp.src([
-		// 'node_modules/jquery/dist/jquery.min.js', // Optional jQuery plug-in (npm i --save-dev jquery)
+		'node_modules/easeljs/lib/easeljs.min.js', // Optional jQuery plug-in (npm i --save-dev jquery)
 		'app/js/_libs.js', // JS libraries (all in one)
 		'app/js/_custom.js', // Custom scripts. Always at the end
 		])

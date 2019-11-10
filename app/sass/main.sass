@@ -24,6 +24,11 @@ ul
 
 body
   overflow-x: hidden
+  overflow: -moz-scrollbars-none
+  -ms-overflow-style: none
+
+  &::-webkit-scrollbar
+    width: 0 !important
 
 li
   list-style: none
@@ -60,7 +65,7 @@ li
 
 
 .header
-  background-color: white
+  background-color: rgba(255, 255, 255, 0.95)
   z-index: 10
 
   .header-content
@@ -82,6 +87,7 @@ li
         align-self: center
         margin-left: 20px
         cursor: pointer
+
 
     .navbar
       align-self: center
@@ -167,6 +173,7 @@ li
 
 .works
   background-color: $secondary
+  padding-bottom: 80px
 
   .works-content
 
@@ -219,8 +226,8 @@ li
         position: relative
 
         .img-slider-container
-          width: 69.9%
-          height: 75%
+          width: 170px
+          height: 300px
           position: absolute
           top: 12.2%
           left: 15%
@@ -286,10 +293,89 @@ li
               font-size: 14px
 
     .works-slider
+      position: relative
+      margin: auto
       margin-top: 30px
-      display: flex
-      justify-content: center
-      padding-bottom: 50px
+      width: 395px
+      height: 68px
+      background-image: url('../img/_src/slider-buttons-works.png')
+      background-size: contain
+      background-repeat: no-repeat
+
+      #prevBtn
+        position: absolute
+        border: none
+        height: 100%
+        width: 41%
+        background-color: transparent
+
+        svg
+          height: 30%
+          transform: translateX(-70px) translateY(-5px)
+          fill: white
+          transition: 0.3s
+
+        &:hover
+          svg
+            fill: black
+
+        &:focus
+          outline: none
+          border: none
+
+      #nextBtn
+        position: absolute
+        left: 59%
+        height: 100%
+        width: 41%
+        border: none
+        background-color: transparent
+
+        svg
+          height: 30%
+          transform: translateX(70px) translateY(-5px)
+          fill: white
+          transition: 0.3s
+
+        &:hover
+          svg
+            fill: black
+
+        &:focus
+          outline: none
+          border: none
+
+      .count
+        position: absolute
+        top: 25%
+        left: 44%
+        color: white
+        font-family: "Montserrat"
+        font-size: 18px
+
+      .slash
+        top: 25%
+        left: 50%
+
+      .zerofour
+        top: 29%
+        left: 52%
+
+      &-title
+        font-family: "Montserrat"
+        font-size: 12px
+        text-transform: uppercase
+        cursor: pointer
+
+      .next
+        position: absolute
+        top: 33%
+        left: 68%
+
+      .prev
+        position: absolute
+        top: 33%
+        left: 5%
 
 
 .how-we-work
@@ -364,11 +450,19 @@ li
         font-size: 16
         text-transform: uppercase
 
+        &:hover
+          background-color: $secondary
+          transition: 0.2s
+
+        &:focus
+          outline: none
+
 
 .posts
   padding-top: 85px
   background-color: $secondary
   text-align: center
+  padding-bottom: 80px
 
   &-title
     padding-bottom: 85px
@@ -378,125 +472,123 @@ li
       transform: translateX(-130px) translateY(30px)
 
     .title
-
       color: $text-white
+
   &-posts
-    display: flex
-    width: 400%
-    margin-left: 50px
+    width: 100%
     padding-bottom: 50px
 
-    .post
-      width: 340px
-      height: 440px
-      background-color: #595466
-      text-align: left
-      box-shadow: 10px 10px 15px #37333f
-
-      &+.post
-        margin-left: 50px
-
-      .post-image
-        margin: auto
-        margin-top: 25px
-        width: 85%
-        height: 60%
-        background-color: $secondary
-        position: relative
-
-        .post-image
-          width: 100%
-          height: 100%
-
-        .post-date
-          text-align: center
-          position: absolute
-          width: 25%
-          height: 25%
-          top: 100%
-          left: 100%
-          transform: translateX(-100%) translateY(-72%)
-
-          .day
-            font-size: 32px
-            background-color: $text-white
-            font-family: "Montserrat"
-            border-top-left-radius: 4px
-            border-top-right-radius: 4px
-
-          .month
-            padding-top: 5px
-            padding-bottom: 5px
-            text-align: center
-            text-transform: uppercase
-            font-family: "Montserrat"
-            font-size: 11px
-            color: $text-white
-            background-color: $secondary
-            border-bottom-right-radius: 4px
-            border-bottom-left-radius: 4px
-
-      .post-text
-        color: $text-white
-        text-transform: uppercase
-        font-family: "Montserrat"
-        width: 85%
-        margin: auto
-        margin-top: 30px
-
-        .post-author
-          font-size: 10px
-          margin-bottom: 10px
-
-        .post-title
-          font-size: 14px
-          margin-bottom: 10px
-
-        .posts-read-button
-          font-size: 10px
-
-  .scroller
-    width: 70%
-    margin: auto
-    padding-bottom: 85px
-    height: 25px
-    position: relative
-    display: flex
-    align-items: center
-
-    .scroller-line
-      width: 100%
+    .simplebar-track
       background-color: #2f2c36
-      border-radius: 32px
-      height: 8px
+      width: 70%
+      margin: auto
+      overflow: visible
+      border-radius: 16px
 
-    .scroller-button
-      position: absolute
-      height: 25px
-      width: 90px
-      border-radius: 2px
-      /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#d9d9d9+0,ffffff+40,ffffff+60,d9d9d9+100 */
-      background: #d9d9d9 /* Old browsers */
-      background: -moz-linear-gradient(top,  #d9d9d9 0%, #ffffff 40%, #ffffff 60%, #d9d9d9 100%) /* FF3.6-15 */
-      background: -webkit-linear-gradient(top,  #d9d9d9 0%,#ffffff 40%,#ffffff 60%,#d9d9d9 100%) /* Chrome10-25,Safari5.1-6 */
-      background: linear-gradient(to bottom,  #d9d9d9 0%,#ffffff 40%,#ffffff 60%,#d9d9d9 100%) /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d9d9d9', endColorstr='#d9d9d9',GradientType=0 ) /* IE6-9 */
+      .simplebar-scrollbar::before
+        width: inherit
+        cursor: pointer
+        min-height: 25px
+        opacity: 1
+        z-index: 3
+        border-radius: 2px
+        transform: translateY(-9px)
+        background: #d9d9d9 /* Old browsers */
+        background: -moz-linear-gradient(top,  #d9d9d9 0%, #ffffff 40%, #ffffff 60%, #d9d9d9 100%) /* FF3.6-15 */
+        background: -webkit-linear-gradient(top,  #d9d9d9 0%,#ffffff 40%,#ffffff 60%,#d9d9d9 100%) /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom,  #d9d9d9 0%,#ffffff 40%,#ffffff 60%,#d9d9d9 100%) /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d9d9d9', endColorstr='#d9d9d9',GradientType=0 ) /* IE6-9 */
 
-
-      &::after
+      .simplebar-scrollbar::after
         content: ""
+        cursor: pointer
         position: absolute
-        width: 80px
+        width: 90%
         height: 19px
+        top: -6px
+        left: 6%
+        z-index: 4
         /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#cdcdcd+0,ffffff+40,ffffff+60,cdcdcd+100 */
         background: #cdcdcd /* Old browsers */
         background: -moz-linear-gradient(left,  #cdcdcd 0%, #ffffff 40%, #ffffff 60%, #cdcdcd 100%) /* FF3.6-15 */
         background: -webkit-linear-gradient(left,  #cdcdcd 0%,#ffffff 40%,#ffffff 60%,#cdcdcd 100%) /* Chrome10-25,Safari5.1-6 */
         background: linear-gradient(to right,  #cdcdcd 0%,#ffffff 40%,#ffffff 60%,#cdcdcd 100%) /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cdcdcd', endColorstr='#cdcdcd',GradientType=1 ) /* IE6-9 */
-        transform: translateY(3px) translateX(-40px)
         border-radius: 32px
 
+
+    .posts-container
+      display: flex
+
+      .post
+        min-width: 340px
+        max-width: 340px
+        height: 440px
+        background-color: #595466
+        text-align: left
+        box-shadow: 10px 10px 15px #37333f
+
+        &+.post
+          margin-left: 50px
+
+        .post-image
+          margin: auto
+          margin-top: 25px
+          width: 85%
+          height: 60%
+          background-color: $secondary
+          position: relative
+
+          .post-image
+            width: 100%
+            height: 100%
+
+          .post-date
+            text-align: center
+            position: absolute
+            width: 25%
+            height: 25%
+            top: 100%
+            left: 100%
+            transform: translateX(-100%) translateY(-72%)
+
+            .day
+              font-size: 32px
+              background-color: $text-white
+              font-family: "Montserrat"
+              border-top-left-radius: 4px
+              border-top-right-radius: 4px
+
+            .month
+              padding-top: 5px
+              padding-bottom: 5px
+              text-align: center
+              text-transform: uppercase
+              font-family: "Montserrat"
+              font-size: 11px
+              color: $text-white
+              background-color: $secondary
+              border-bottom-right-radius: 4px
+              border-bottom-left-radius: 4px
+
+        .post-text
+          color: $text-white
+          text-transform: uppercase
+          font-family: "Montserrat"
+          width: 85%
+          margin: auto
+          margin-top: 30px
+
+          .post-author
+            font-size: 10px
+            margin-bottom: 10px
+
+          .post-title
+            font-size: 14px
+            margin-bottom: 10px
+
+          .posts-read-button
+            font-size: 10px
 
 .facts
 
@@ -552,10 +644,6 @@ li
 
           .logo
             margin: 10px
-
-      #canvas
-        transform: translateY(-125px)
-
 
 .footer
   background-color: $secondary
