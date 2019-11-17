@@ -1,3 +1,4 @@
+new WOW().init();
 //Font to preload
 const FONT_NAME = "Montserrat";
 const NAVBAR_ID = document.querySelector("#navbar-icon");
@@ -13,7 +14,7 @@ window.addEventListener('scroll', () => {
   navLinks.forEach(link => {
     let section = document.querySelector(link.hash);
 
-    if(section.offsetTop - 40 <= fromTop && section.offsetTop + section.offsetHeight - 40 > fromTop){
+    if(section.offsetTop <= fromTop && section.offsetTop + section.offsetHeight > fromTop){
       link.classList.add('active');
     }
     else{
@@ -35,11 +36,22 @@ NAVBAR_ID.addEventListener('click', () => {
 
 //Draw Cnavas
 function drawCanvas(){
-  let w = window.innerWidth;
+  let w;
   let canvas = document.getElementById("canvas");
   let ctx = canvas.getContext("2d");
-  let k = 1366/innerWidth;
-  canvas.width = w;
+  if(window.innerWidth > 768){
+    w = window.innerWidth;
+    canvas.width = w - w/4 - 75;
+  }
+  else if(window.innerWidth < 576){
+    w = 450;
+    canvas.width = w - w/4 - 35;
+  }
+  else{
+    w = 768;
+    canvas.width = w - w/4 - 35;
+  }
+  let k = 1366/w;
   canvas.height = canvas.height/k;
   canvas.style.transform = "translateY(-" + (125/k) + "px)";
   ctx.beginPath();
@@ -114,22 +126,43 @@ function drawCanvas(){
   ctx.font = 72/k + "px Montserrat";
   ctx.fillText("122", (800 - 54)/k, (160 + 22)/k);
   ctx.fillStyle = "#3f3b48";
-  ctx.font = 12/k + "px Montserrat";
-  ctx.fillText("HAPPY CLIENTS", (195 - 48)/k, (190 + 80)/k);
-  ctx.fillText("COMPLETED PROJECTS", (375 - 70)/k, (270 + 65)/k);
-  ctx.fillText("BEST SHOTS", (520 - 38)/k, (160 + 80)/k);
-  ctx.fillText("COFFES MADE", (650 - 45)/k, (45 + 65)/k);
-  ctx.fillText("WINNING AWARDS", (800 - 55)/k, (160 + 120)/k);
+  if(window.innerWidth <= 576){
+    ctx.font = 12/k*1.5 + "px Montserrat";
+    ctx.fillText("HAPPY CLIENTS", (195 - 70)/k, (190 + 80)/k);
+    ctx.fillText("COMPLETED PROJECTS", (375 - 100)/k, (270 + 65)/k);
+    ctx.fillText("BEST SHOTS", (520 - 60)/k, (160 + 80)/k);
+    ctx.fillText("COFFES MADE", (650 - 70)/k, (45 + 65)/k);
+    ctx.fillText("WINNING AWARDS", (800 - 90)/k, (160 + 120)/k);
+  }
+  else{
+    ctx.font = 12/k + "px Montserrat";
+    ctx.fillText("HAPPY CLIENTS", (195 - 48)/k, (190 + 80)/k);
+    ctx.fillText("COMPLETED PROJECTS", (375 - 70)/k, (270 + 65)/k);
+    ctx.fillText("BEST SHOTS", (520 - 38)/k, (160 + 80)/k);
+    ctx.fillText("COFFES MADE", (650 - 45)/k, (45 + 65)/k);
+    ctx.fillText("WINNING AWARDS", (800 - 55)/k, (160 + 120)/k);
+  }
 }
 
 //Resize Canvas
 window.addEventListener('resize', () => {
-  let w = window.innerWidth;
+  let w;
   let canvas = document.getElementById("canvas");
   let ctx = canvas.getContext("2d");
-  let k = 1366/innerWidth;
+  if(window.innerWidth > 768){
+    w = window.innerWidth;
+    canvas.width = w - w/4 - 75;
+  }
+  else if(window.innerWidth < 576){
+    w = 450;
+    canvas.width = w - w/4 - 35;
+  }
+  else{
+    w = 768;
+    canvas.width = w - w/4 - 35;
+  }
+  let k = 1366/w;
   ctx.clearRect(0, 0, canvas.widht, canvas.height);
-  canvas.width = w;
   canvas.height = w/16*4;
   canvas.style.transform = "translateY(-" + (125/k) + "px)";
   ctx.beginPath();
@@ -204,12 +237,22 @@ window.addEventListener('resize', () => {
   ctx.font = 72/k + "px Montserrat";
   ctx.fillText("122", (800 - 54)/k, (160 + 22)/k);
   ctx.fillStyle = "#3f3b48";
-  ctx.font = 12/k + "px Montserrat";
-  ctx.fillText("HAPPY CLIENTS", (195 - 48)/k, (190 + 80)/k);
-  ctx.fillText("COMPLETED PROJECTS", (375 - 70)/k, (270 + 65)/k);
-  ctx.fillText("BEST SHOTS", (520 - 38)/k, (160 + 80)/k);
-  ctx.fillText("COFFES MADE", (650 - 45)/k, (45 + 65)/k);
-  ctx.fillText("WINNING AWARDS", (800 - 55)/k, (160 + 120)/k);
+  if(window.innerWidth <= 576){
+    ctx.font = 12/k*1.5 + "px Montserrat";
+    ctx.fillText("HAPPY CLIENTS", (195 - 70)/k, (190 + 80)/k);
+    ctx.fillText("COMPLETED PROJECTS", (375 - 100)/k, (270 + 65)/k);
+    ctx.fillText("BEST SHOTS", (520 - 60)/k, (160 + 80)/k);
+    ctx.fillText("COFFES MADE", (650 - 70)/k, (45 + 65)/k);
+    ctx.fillText("WINNING AWARDS", (800 - 90)/k, (160 + 120)/k);
+  }
+  else{
+    ctx.font = 12/k + "px Montserrat";
+    ctx.fillText("HAPPY CLIENTS", (195 - 48)/k, (190 + 80)/k);
+    ctx.fillText("COMPLETED PROJECTS", (375 - 70)/k, (270 + 65)/k);
+    ctx.fillText("BEST SHOTS", (520 - 38)/k, (160 + 80)/k);
+    ctx.fillText("COFFES MADE", (650 - 45)/k, (45 + 65)/k);
+    ctx.fillText("WINNING AWARDS", (800 - 55)/k, (160 + 120)/k);
+  }
 })
 //CAROUSEL
 

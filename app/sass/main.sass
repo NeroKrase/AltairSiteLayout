@@ -36,6 +36,8 @@ li
 .content-wrapper
   width: 70%
   margin: auto
+  @media (max-width: 768px)
+    width: 95%
 
 .red-text
   @include red-text
@@ -59,21 +61,23 @@ li
   position: fixed
   top: 0
   width: 100%
-
-  & + .main
-    padding-top: 60px
+  &+.main
+    padding-top: 70px
 
 
 .header
   background-color: rgba(255, 255, 255, 0.95)
   z-index: 10
+  height: 70px
 
   .header-content
+    height: inherit
     display: flex
     justify-content: space-between
 
     .logo-section
       display: flex
+      align-items: center
 
       .logo
         width: 42px
@@ -92,14 +96,14 @@ li
     .navbar
       align-self: center
 
+      .icon
+        display: none
+
       &-list
         display: flex
 
         .navbar-list-item
           align-self: center
-
-          &.icon
-            display: none
 
           &:not(:first-child)
               margin-left: 35px
@@ -128,37 +132,75 @@ li
         .name
           align-self: flex-start
       .navbar
+        .icon
+          display: block
+          height: 40px
+          width: 40px
+          font-size: 40px
+          line-height: 32px
+          border-radius: 50%
+          text-align: center
+          transition: 0.2s
+          cursor: pointer
+          &:hover
+            background-color: $secondary
+            color: $text-white
         &-list
+          display: flex
+          flex-direction: column
+          justify-content: space-around
+          background-color: #fff
+          height: 90vh
+          width: 50%
           transition: 0.5s
+          flex-direction: column
+          position: absolute
+          top: 70px
+          border-top: 3px solid $secondary
+          border-left: 3px solid $secondary
+          right: -250%
           .navbar-list-item
-            display: none
-            &.icon
-              position: absolute
-              top: 0
-              right: 20px
-              margin: 0
-              text-align: center
-              display: block
-              font-size: 36px
-              cursor: pointer
-              line-height: 32px
-              height: 40px
-              width: 40px
-              border-radius: 50%
-              &:hover
-                color: white
-                background-color: $secondary
-          &.responsive
-            margin-top: 30px
+            width: 100%
+            height: 100%
+            text-align: center
             display: flex
-            flex-direction: column
-            .navbar-list-item
-              display: block
-              line-height: 40px
-              margin: 0
-              a
-                .mail
-                  margin-bottom: 20px
+            justify-content: center
+            align-items: center
+            border-bottom: 3px solid $secondary
+            &:hover
+              background-color: lighten($text-secondary, 5)
+              transition: 0.2s
+            a
+              height: 100%
+              width: 100%
+              display: flex
+              justify-content: center
+              align-items: center
+              &.active
+                background-color: lighten($text-secondary, 5)
+            &:not(:first-child)
+              margin-left: 0
+          &.responsive
+            transform: translateX(-500%)
+@media (max-width: 576px)
+  .header
+    height: 40px
+    .header-content
+      .navbar
+        &-list
+          top: 40px
+          height: 95vh
+      .logo-section
+        height: 40px
+        .logo
+          margin-top: 8px
+          width: 24px
+          height: 24px
+        .name
+          margin-top: 6px
+          font-size: 24px
+          line-height: 24px
+          margin-left: 10px
 
 
 .main
@@ -179,6 +221,7 @@ li
 
     .main-title-container
       margin-bottom: 75px
+      height: 138px
 
       .thitnk
         transform: translateX(-195px)
@@ -221,9 +264,50 @@ li
     .main-content
 
       .main-title-container
+        width: 580px
+        margin-left: auto
 
         .thitnk
           transform: translateX(-145px)
+
+  @media (max-width: 768px)
+
+    .main-content
+
+      .main-title-container
+        width: 450px
+        margin-right: auto
+
+        .thitnk
+          transform: translateX(-105px)
+
+@media (max-width: 576px)
+  .main
+    height: 480px
+    .main-content
+      .main-title-container
+        width: 200px
+        .main-title
+          line-height: 50px
+      .main-devices
+        .ipad
+          max-width: 200px
+          transform: translateX(110%) translateY(0px)
+          &:hover
+            transform: translateX(110%) translateY(-40px)
+        .iphone
+          max-width: 100px
+          height: 140px
+          transform: translateX(-270%) translateY(100px)
+          &:hover
+            transform: translateX(-270%) translateY(70px)
+        .browser
+          max-width: 200px
+          height: 150px
+          transform: translateX(-60%) translateY(70px)
+          &:hover
+            transform: translateX(-90%) translateY(70px)
+
 
 .works
   background-color: $secondary
@@ -243,17 +327,18 @@ li
       display: flex
       justify-content: space-between
       overflow-x: hidden
+      overflow-y: hidden
 
       .container
-        width: 250px
+        max-width: 250px
         overflow-x: hidden
 
         .description-slider-container
           display: flex
-          width: 250px
+          max-width: 250px
 
           .description-container
-            min-width: 250px
+            min-width: 251px
 
             .description-title
               font-family: "Montserrat"
@@ -448,6 +533,46 @@ li
         .works-cursive-title
           transform: translateX(-95px) translateY(30px)
 
+  @media (max-width: 768px)
+
+    .works-content
+      .works-title-container
+        .works-cursive-title
+          transform: translateX(-65px) translateY(30px)
+
+  @media (max-width: 576px)
+    .works-content-main
+      flex-direction: column
+      align-items: center
+      text-align: center
+      .container
+        margin-bottom: 30px
+    .works-content
+      .works-slider
+        max-width: 300px
+        #prevBtn
+          svg
+            height: 20%
+            transform: translateX(-55px) translateY(-12px)
+        #nextBtn
+          svg
+            height: 20%
+            transform: translateX(52px) translateY(-12px)
+        .count
+          top: 20%
+          font-size: 14px
+        .slash
+          top: 20%
+        .zerofour
+          top: 24%
+        &-title
+          font-size: 10px
+        .next
+          top: 25%
+        .prev
+          top: 25%
+
+
 
 .how-we-work
   height: 892px
@@ -530,6 +655,31 @@ li
 
         &:focus
           outline: none
+  @media (max-width: 992px)
+
+    .how-we-work-content
+      .how-we-work-title
+        .we
+          font-size: 81px
+          transform: translateY(7px)
+
+  @media (max-width: 768px)
+
+    .how-we-work-content
+      .how-we-work-title
+        .we
+          font-size: 58px
+          transform: translateY(4px)
+      .how-we-work-description
+        flex-direction: column
+        text-align: center
+        align-items: center
+        padding-bottom: 10px
+        .block
+          margin: 0
+          margin-bottom: 20px
+          .block-title
+            padding: 0
 
 
 .posts
@@ -596,7 +746,6 @@ li
 
       .post
         min-width: 340px
-        max-width: 340px
         height: 440px
         background-color: #595466
         text-align: left
@@ -664,6 +813,41 @@ li
           .posts-read-button
             font-size: 10px
 
+  @media (max-width: 992px)
+    .posts-title
+      .cursive-title
+        color: $text-white
+        transform: translateX(-105px) translateY(30px)
+
+  @media (max-width: 768px)
+    .posts-title
+      .cursive-title
+        color: $text-white
+        transform: translateX(-75px) translateY(30px)
+    .simplebar-track
+      width: 90%
+    .posts-container
+      .post
+        height: 340px
+        min-width: 240px
+        .post-image
+          .post-date
+            .day
+              font-size: 24px
+            .month
+              font-size: 7px
+        .post-text
+          .post-author
+            font-size: 8px
+            margin-bottom: 5px
+
+          .post-title
+            font-size: 11px
+            margin-bottom: 5px
+
+          .posts-read-button
+            font-size: 8px
+
 .facts
 
   .facts-content
@@ -726,6 +910,19 @@ li
       margin: auto
       margin-bottom: 70px
 
+  @media (max-width: 768px)
+    .facts-content
+      .facts-clients
+        display: flex
+        flex-direction: column
+        align-items: center
+        canvas
+          margin: auto
+
+  @media (max-width: 576px)
+    .clients-logos
+      max-width: 280px
+
 .footer
   background-color: $secondary
   font-family: "Montserrat"
@@ -782,3 +979,15 @@ li
             fill: #ea4c89
             border-color: #ea4c89
             box-shadow: 0px 0px 10px #ea4c89
+
+@media (max-width: 576px)
+  .footer
+    font-size: 9px
+    .footer-content
+      flex-direction: column
+      align-items: flex-start
+      .follows
+        margin-top: 5px
+        .icon
+          max-width: 25px
+          max-height: 25px

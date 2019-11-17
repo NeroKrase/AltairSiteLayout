@@ -26,7 +26,10 @@ function bsReload(done) { browserSync.reload(); done(); };
 
 // Custom Styles
 gulp.task('styles', function() {
-	return gulp.src('app/sass/**/*.sass')
+	return gulp.src([
+		'app/sass/**/*.sass',
+		'node_modules/simplebar/dist/simplebar.min.css',
+		'node_modules/animate.css/animate.min.css'])
 	.pipe(sass({
 		outputStyle: 'expanded',
 		includePaths: [__dirname + '/node_modules']
@@ -45,7 +48,8 @@ gulp.task('styles', function() {
 gulp.task('scripts', function() {
 	return gulp.src([
 		'node_modules/simplebar/dist/simplebar.min.js',
-		'node_modules/easeljs/lib/easeljs.min.js', // Optional jQuery plug-in (npm i --save-dev jquery)
+		'node_modules/easeljs/lib/easeljs.min.js',
+		'node_modules/wowjs/dist/wow.min.js', // Optional jQuery plug-in (npm i --save-dev jquery)
 		'app/js/_libs.js', // JS libraries (all in one)
 		'app/js/_custom.js', // Custom scripts. Always at the end
 		])
